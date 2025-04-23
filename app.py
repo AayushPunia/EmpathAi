@@ -47,4 +47,8 @@ def chat():
         return jsonify({"response": f"API Error: {str(e)}"}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+
+    port = int(os.environ.get("PORT", 5000))  # Render provides this
+    app.run(host="0.0.0.0", port=port)
+
